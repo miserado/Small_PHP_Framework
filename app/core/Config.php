@@ -15,6 +15,7 @@ class Config
 
     static function getConfig(string $filename): array
     {
+        $filename .= '.php';
         if (file_exists(self::path . $filename))
             return self::$configs[$filename];
         else die(__METHOD__);
