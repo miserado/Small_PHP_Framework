@@ -8,6 +8,9 @@ class MainController extends Controller
 {
     public function IndexAction()
     {
-        echo __METHOD__;
+        $vars = [
+            'title' => 'Main Page'
+        ];
+        $this->view->renderView($vars);
     }
 }

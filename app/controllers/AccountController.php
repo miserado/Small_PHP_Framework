@@ -8,11 +8,17 @@ class AccountController extends Controller
 {
     public function RegisterAction()
     {
-        echo __METHOD__;
+        $vars = [
+            'title' => 'Register Page'
+        ];
+        $this->view->renderView($vars);
     }
 
     public function LoginAction()
     {
-        echo __METHOD__;
+        $vars = [
+            'title' => 'Login Page'
+        ];
+        $this->view->renderView($vars);
     }
 }
