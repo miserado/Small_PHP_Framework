@@ -25,7 +25,7 @@ class View
         } else self::redirectToErrorPage(404);
     }
 
-    public function redirectTo(string $url)
+    static function redirectTo(string $url)
     {
         header('location: ' . $url);
         die();
@@ -35,8 +35,9 @@ class View
     {
         http_response_code($page);
         $path = 'app/views/errors/' . $page . '.php';
-        if (file_exists($path))
+        if (file_exists($path)) {
             require_once($path);
-        else die(__METHOD__);
+            die();
+        } else die(__METHOD__);
     }
 }
