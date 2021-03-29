@@ -22,7 +22,7 @@ class View
             require_once($path);
             $content = ob_get_clean();
             require_once('app/views/layouts/' . $this->layout . '.php');
-        } else self::redirectToErrorPage(404);
+        } else self::showErrorPage(404);
     }
 
     static function redirectTo(string $url)
@@ -31,7 +31,7 @@ class View
         die();
     }
 
-    static function redirectToErrorPage(string $page)
+    static function showErrorPage(string $page)
     {
         http_response_code($page);
         $path = 'app/views/errors/' . $page . '.php';

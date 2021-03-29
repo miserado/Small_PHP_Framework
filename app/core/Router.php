@@ -3,6 +3,7 @@
 namespace app\core;
 
 use app\core\Config;
+use app\core\View;
 
 class Router
 {
@@ -47,6 +48,6 @@ class Router
                 }
             }
         }
-        if ($error) die(__METHOD__);
+        if ($error) View::showErrorPage(403);
     }
 }
