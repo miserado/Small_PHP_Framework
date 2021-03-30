@@ -30,15 +30,9 @@ class DataBase
         return $stmt;
     }
 
-    public function fetchRows(string $sql, array $values): array
+    public function fetchAll(string $sql, array $values)
     {
         $result = $this->sendQuery($sql,  $values);
         return $result->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function fetchColumns(string $sql, array $values): array
-    {
-        $result = $this->sendQuery($sql,  $values);
-        return $result->fetchColumn();
     }
 }
