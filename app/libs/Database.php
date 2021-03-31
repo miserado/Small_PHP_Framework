@@ -20,17 +20,17 @@ class DataBase
         }
     }
 
-    public function sendQuery(string $sql, array $values): PDOStatement
+    public function sendQuery(string $sql, $values = []): PDOStatement
     {
-        $stmt = $this->db->prepare($sql);
+        $statement = $this->db->prepare($sql);
         if (!empty($values))
             foreach ($values as $key => $value)
-                $stmt->bindValue(':' . $key, $value);
-        $stmt->execute();
-        return $stmt;
+                $statement->bindValue(':' . $key, $value);
+        $statement->execute();
+        return $statement;
     }
 
-    public function fetchAll(string $sql, array $values)
+    public function fetchAll(string $sql, $values = []): array
     {
         $result = $this->sendQuery($sql,  $values);
         return $result->fetchAll(PDO::FETCH_ASSOC);
